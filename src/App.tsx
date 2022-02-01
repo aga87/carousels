@@ -1,6 +1,8 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
 import { createGlobalStyle } from 'styled-components';
+import Carousel from './components/Carousel';
+import CarouselItem from './components/CarouselItem';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -9,17 +11,22 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  html, body {
+  html, body, #root {
     width: 100%;
     height: 100%;
   }
 `;
 
 const App = () => (
-  <div>
+  <>
     <Normalize />
     <GlobalStyle />
-  </div>
+    <Carousel>
+      <CarouselItem width='100%'>Item 1</CarouselItem>
+      <CarouselItem width='100%'>Item 2</CarouselItem>
+      <CarouselItem width='100%'>Item 3</CarouselItem>
+    </Carousel>
+  </>
 );
 
 export default App;
