@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useSwipeable } from 'react-swipeable';
 import Button from './Button';
 
 const StyledCarousel = styled.div`
@@ -50,8 +51,15 @@ const Carousel: React.FC = ({ children }): JSX.Element => {
     }
   };
 
+  // A swipeable carousel on touch devices
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNextClick(activeIndex),
+    onSwipedRight: () => handlePrevClick(activeIndex)
+  });
+
   return (
-    <StyledCarousel>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <StyledCarousel {...handlers}>
       <StyledCarouselItems activeIndex={activeIndex}>
         {carouselItems}
       </StyledCarouselItems>
