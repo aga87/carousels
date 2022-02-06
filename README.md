@@ -1,3 +1,4 @@
 # Carousel
 
-Carousel with manual activation + auto-rotating carousel
+Carousel with manual activation + auto-rotating carousel.
+Styled components.
